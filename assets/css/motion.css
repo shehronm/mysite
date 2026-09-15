@@ -1,0 +1,99 @@
+/* One motion language: a signal becomes a connected system. Content stays anchored. */
+:root{--motion-ease:cubic-bezier(.16,1,.3,1)}
+.site-header{grid-template-columns:1fr 1fr auto auto;gap:clamp(.75rem,1.7vw,2rem)}
+.site-header:has(.motion-toggle[hidden]){grid-template-columns:1fr 1fr auto}
+.motion-toggle{width:44px;height:44px;display:grid;place-items:center;color:#aeb7ba;border-left:1px solid #3d4446;transition:color .2s}
+.motion-toggle:hover{color:#fff}.motion-toggle svg{width:14px;height:14px;fill:currentColor}.motion-toggle .motion-play{display:none}
+.motion-toggle[data-paused="true"] .motion-pause{display:none}.motion-toggle[data-paused="true"] .motion-play{display:block}
+.site-nav a{position:relative;text-decoration:none!important}
+.site-nav a:after{content:'';position:absolute;bottom:7px;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--motion-ease)}
+.site-nav a:is(:hover,:focus-visible,[aria-current]):after{transform:scaleX(1)}
+.hero-primary{position:relative;overflow:hidden;transition:background .25s,box-shadow .3s}
+.hero-primary span{position:relative;z-index:1}.hero-primary span:last-child{transition:transform .3s var(--motion-ease)}
+.hero-primary:is(:hover,:focus-visible){box-shadow:0 8px 32px #174cff26}.hero-primary:is(:hover,:focus-visible) span:last-child{transform:translateX(5px)}
+.hero-secondary,.text-cta,.contact-link{transition:border-color .25s,color .25s}
+.contact-link span:last-child{transition:transform .4s var(--motion-ease)}.contact-link:is(:hover,:focus-visible) span:last-child{transform:translate(4px,-4px)}
+
+/* Brief entrance. HTML remains fully readable without JavaScript. */
+.motion-entry .hero>span{animation:headline-arrive .68s var(--motion-ease) both}
+.motion-entry .hero>span:nth-child(2){animation-delay:.09s}
+.motion-entry .hero-sub{animation:copy-arrive .7s .18s var(--motion-ease) both}
+.motion-entry .hero-side,.motion-entry .open-label{animation:copy-arrive .65s .1s var(--motion-ease) both}
+.motion-entry .page-title{animation:headline-arrive .65s var(--motion-ease) both}
+.motion-entry .page-lead{animation:copy-arrive .65s .12s var(--motion-ease) both}
+.motion-entry .page-work .is-initial .cut-title,.motion-entry .page-work .is-initial .project-head,.motion-entry .page-reviews .hero-title{animation:headline-arrive .65s var(--motion-ease) both}
+.motion-entry .page-work .is-initial .intro-copy>.micro,.motion-entry .page-reviews .hero-inner>.micro{animation:copy-arrive .65s .1s var(--motion-ease) both}
+.motion-entry .page-work .is-initial .intro-note,.motion-entry .page-work .is-initial .intro-arrow,.motion-entry .page-work .is-initial .project-meta,.motion-entry .page-reviews .hero-copy{animation:copy-arrive .65s .12s var(--motion-ease) both}
+.page-work .motion-toggle{color:#40484a;border-color:#b0b2ac}.page-work .motion-toggle:hover{color:#0a0a0a}
+.work-viewport.is-transitioning .track{cursor:default}
+.work-viewport.is-transitioning .panel>.ticker .ticker-run{animation-play-state:paused}
+@keyframes headline-arrive{from{opacity:.05;transform:translateY(24px);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(-10% -5% -10% -5%)}}
+@keyframes copy-arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.section-arrive{animation:section-arrive .75s var(--motion-ease) both}
+@keyframes section-arrive{from{opacity:.05;translate:0 18px;clip-path:inset(0 0 100% 0)}to{opacity:1;translate:0 0;clip-path:inset(-8% -4% -8% -4%)}}
+
+/* Only three SVG groups move; no per-frame path or filter changes. */
+.hero-art{overflow:clip}
+#heroWave{transform:translate3d(var(--art-x,0px),var(--art-y,0px),0);transition:transform 1.5s var(--motion-ease)}
+.motion-ready .wave-horizontal{transform-origin:1120px 510px;animation:ribbon-breathe 12s ease-in-out infinite alternate}
+.motion-ready .wave-vertical{transform-origin:1120px 390px;animation:ribbon-rise 15s ease-in-out infinite alternate}
+.motion-ready .wave-dots{transform-origin:1205px 418px;animation:field-turn 38s linear infinite}
+.motion-ready .hero-signal{stroke-dasharray:.065 .935;animation:signal-travel 6s linear infinite;opacity:.85}
+.hero-signal{opacity:0;stroke-linecap:round}
+.motion-ready .hero-orbit{transform:translate3d(var(--orbit-x,0px),var(--orbit-y,0px),0);transition:transform 1.7s var(--motion-ease)}
+.hero-orbit:after{content:'';position:absolute;left:14.5%;top:14.5%;width:5px;height:5px;border-radius:50%;background:#cbd4e6;box-shadow:0 0 12px #7399ff70}
+.motion-entry .hero-art{animation:art-arrive 1.6s var(--motion-ease) both}
+@keyframes art-arrive{from{opacity:0;clip-path:inset(0 0 0 55%)}to{opacity:1;clip-path:inset(0)}}
+@keyframes ribbon-breathe{from{transform:translateY(7px) rotate(-1.5deg) scaleY(.95)}to{transform:translateY(-9px) rotate(1deg) scaleY(1.055)}}
+@keyframes ribbon-rise{from{transform:translateX(-7px) rotate(-1deg)}to{transform:translateX(10px) rotate(1.4deg)}}
+@keyframes field-turn{to{transform:rotate(360deg)}}
+@keyframes signal-travel{from{stroke-dashoffset:.12}to{stroke-dashoffset:-.88}}
+
+/* The second composition develops the same orbit into connected paths. */
+.offer-head{grid-template-columns:minmax(0,1.22fr) minmax(0,1fr);gap:1rem 4vw;padding-top:3rem;padding-bottom:3rem}
+.offer-heading{grid-column:1;grid-row:1/3}
+.offer-head>p{grid-column:2;grid-row:2;max-width:28rem;padding-top:0;justify-self:center;width:100%}
+.offer-mark{grid-column:2;grid-row:1;position:relative;inset:auto;width:min(100%,30rem);height:auto;aspect-ratio:1.35;border:0;margin:0;align-self:center;justify-self:center;opacity:1}
+.offer-mark:after{display:none}.offer-mark svg{width:100%;height:100%;overflow:visible}
+.offer-mark .field-orbit{transform-origin:260px 185px}
+.motion-ready .offer-mark .field-orbit{animation:field-turn 42s linear infinite}
+.motion-ready .field-signal{stroke-dasharray:.05 .95;animation:signal-travel 7s linear infinite}
+.field-signal{opacity:0}.motion-ready .field-signal{opacity:.9}
+.offer-mark .field-lines{transform:translate3d(var(--field-x,0px),0,0);transition:transform 1.3s var(--motion-ease)}
+.offer-mark .field-caption{fill:#adb7c6;font:10px 'Courier New',monospace;letter-spacing:2px}
+.offer-row:before{background:radial-gradient(ellipse at var(--row-x,50%) 50%,rgba(var(--hover),.16),transparent 65%),linear-gradient(90deg,rgba(var(--hover),.06),transparent);transition:opacity .35s}
+.offer-row:after{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:rgb(var(--hover));transform:scaleY(0);transform-origin:top;transition:transform .45s var(--motion-ease)}
+.offer-row:is(:hover,:focus-visible):after{transform:scaleY(1)}
+.offer-arrow{transition:color .3s,transform .4s var(--motion-ease)}
+.offer-row:is(:hover,:focus-visible) .offer-arrow{color:rgb(var(--hover));transform:translateX(4px)}
+.offer-row:is(:hover,:focus-visible) .offer-art svg{transform:scale(1.035)}
+.capability-signal{stroke-dasharray:.15 .85;stroke-dashoffset:1;opacity:0;stroke-linecap:round}
+.offer-row:is(:hover,:focus-visible) .capability-signal{animation:capability-flow 1.4s var(--motion-ease) both}
+.system-window{opacity:0}.offer-row:is(:hover,:focus-visible) .system-window{animation:system-resolve .8s var(--motion-ease) both}
+@keyframes capability-flow{0%{stroke-dashoffset:1;opacity:0}15%{opacity:1}85%{opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes system-resolve{from{opacity:0;transform:translateY(4px)}to{opacity:.8;transform:none}}
+.glass-layer{transform-origin:var(--dialog-origin-x,50%) var(--dialog-origin-y,70%)}
+.glass-next i,.glass-close{transition:background .2s,transform .3s var(--motion-ease)}
+.glass-next:hover i{transform:translateX(3px);background:#fff9}.glass-close:hover{background:#fffc}
+
+/* Progressive native page changes retain the header. No navigation interception. */
+@view-transition{navigation:auto}
+.site-header{view-transition-name:mira-header}
+::view-transition-old(root){animation:page-leave .16s ease-out both}
+::view-transition-new(root){animation:page-enter .24s ease-out both}
+@keyframes page-leave{to{opacity:0}}@keyframes page-enter{from{opacity:0}to{opacity:1}}
+
+[data-motion-visible="false"] *,html[data-motion="paused"] .hero-art *,html[data-motion="paused"] .offer-mark *{animation-play-state:paused!important}
+html[data-motion-preference="paused"] *,html[data-motion-preference="paused"] *:before,html[data-motion-preference="paused"] *:after{animation-play-state:paused!important;transition:none!important}
+html[data-motion-preference="paused"] .hero>span,html[data-motion-preference="paused"] .hero-sub,html[data-motion-preference="paused"] .hero-side,html[data-motion-preference="paused"] .open-label,html[data-motion-preference="paused"] .hero-art,html[data-motion-preference="paused"] .page-title,html[data-motion-preference="paused"] .page-lead,html[data-motion-preference="paused"] .section-arrive{animation:none!important}
+html[data-motion-preference="paused"] .glass-layer,html[data-motion-preference="paused"] .mobile-menu{animation:none!important}
+html[data-motion-preference="paused"]::view-transition-group(*),html[data-motion-preference="paused"]::view-transition-old(*),html[data-motion-preference="paused"]::view-transition-new(*){animation:none!important}
+@media(min-width:901px) and (max-width:1150px){.site-header{grid-template-columns:1fr auto auto auto;gap:.75rem}.site-header:has(.motion-toggle[hidden]){grid-template-columns:1fr auto auto}}
+@media(max-width:900px){.site-header,.site-header:has(.motion-toggle[hidden]){grid-template-columns:1fr auto auto}.site-header:has(.motion-toggle[hidden]){grid-template-columns:1fr auto}.offer-mark{width:min(100%,21rem)}}
+@media(max-width:600px){.offer-head{grid-template-columns:1fr;padding-top:1.5rem;gap:1.75rem}.offer-heading{grid-column:1;grid-row:1}.offer-head>p{grid-column:1;grid-row:3;justify-self:start}.offer-mark{grid-column:1;grid-row:2;width:min(100%,21rem);aspect-ratio:1.65;justify-self:end;margin-top:-1.5rem}.offer-mark .field-caption{display:none}.motion-entry .hero-art{animation-name:art-arrive-mobile}.motion-toggle{width:44px;border-left:0}.site-header{gap:.75rem}}
+@keyframes art-arrive-mobile{from{opacity:0}to{opacity:.55}}
+@media(prefers-reduced-motion:reduce){.motion-toggle{display:none}.site-header{grid-template-columns:1fr 1fr auto}.hero-signal,.field-signal{display:none}#heroWave,.hero-orbit,.offer-mark .field-lines{transform:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+@media(prefers-reduced-motion:reduce) and (max-width:1150px) and (min-width:901px){.site-header{grid-template-columns:1fr auto auto}}
+@media(prefers-reduced-motion:reduce) and (max-width:900px){.site-header{grid-template-columns:1fr auto}}
+@media print{.motion-toggle{display:none}.section-arrive,.hero>span,.hero-sub,.hero-art{animation:none!important;opacity:1!important;transform:none!important}}
+@media(max-width:400px){.site-header{gap:8px}.menu-toggle{gap:8px}.site-brand{font-size:clamp(1.25rem,6.5vw,1.625rem)}}

@@ -1,0 +1,128 @@
+{
+  "ru": {
+    "meta": "TELEGRAM / БОТЫ / MINI APPS",
+    "title": "Ближе к клиенту. Проще для команды.",
+    "text": "Создаём ботов и Mini Apps, с которыми удобно записаться, оформить заказ, задать вопрос или согласовать задачу прямо в Telegram. Связываем диалог с расписанием, CRM и рабочими инструментами компании. Выбираем сценарий под конкретную задачу: от понятного меню до AI-помощника с передачей разговора сотруднику.",
+    "role": "СЦЕНАРИИ РАЗРАБОТКИ ПОД ВАШ БИЗНЕС",
+    "sections": [
+      {
+        "title": "Ответы, за которыми стоят знания",
+        "text": "AI-помощник отвечает по вашим услугам, правилам и материалам. Он может объяснить условия, уточнить запрос и подготовить обращение для команды. Для справочных ответов показываем доступный пользователю источник. Если информации недостаточно или вопрос требует решения сотрудника, разговор передаётся человеку вместе с контекстом.",
+        "items": [
+          "База знаний с обновляемыми документами и доступом по ролям.",
+          "Режим черновиков для проверки ответов перед отправкой.",
+          "История диалога, причина передачи и ответственный сотрудник."
+        ]
+      },
+      {
+        "title": "Запись без длинной переписки",
+        "text": "Для салона, барбершопа или сервиса проектируем Mini App: услуга, специалист, свободное время и подтверждение. Подключаем действующее расписание или создаём единое. Перед подтверждением повторно проверяем доступность, чтобы два клиента не заняли одно время. Перенос и отмена работают по вашим правилам.",
+        "items": [
+          "Цена и длительность услуги до выбора времени.",
+          "Ближайшая запись, история посещений и повторное бронирование.",
+          "Напоминания по согласию клиента и уведомления администратору."
+        ]
+      },
+      {
+        "title": "Заказ, к которому легко вернуться",
+        "text": "Для кафе и ресторана можно объединить меню, предзаказ и программу лояльности. Гость выбирает блюда и время получения, видит состав заказа и его статус. Сотрудники управляют доступностью позиций и подтверждают заказ. Правила бонусов задаются явно, а изменения сохраняются в истории.",
+        "items": [
+          "Категории, модификаторы, стоп-лист и повтор последнего заказа.",
+          "Самовывоз или доставка с проверкой зоны обслуживания.",
+          "Оплата после подключения подходящего платёжного провайдера."
+        ]
+      },
+      {
+        "title": "Из обращения — в следующий шаг",
+        "text": "Бот собирает обращение в коротком диалоге: что требуется, где, когда и как связаться. Клиент может приложить фотографии или документы. Данные передаются в CRM; менеджер получает контекст, а клиент — понятное подтверждение. Если интеграция недоступна, заявка сохраняется для повторной передачи.",
+        "items": [
+          "Вопросы меняются в зависимости от выбранной услуги.",
+          "Поиск повторных заявок и назначение ответственного.",
+          "Статус обработки и согласованный следующий шаг."
+        ]
+      },
+      {
+        "title": "Рабочие вопросы без потерянных сообщений",
+        "text": "Для команды создаём короткие рабочие сценарии: сообщить о проблеме, согласовать закупку, принять смену или выполнить проверку. У каждого действия есть исполнитель, срок и статус. Руководитель видит, что требует внимания, а сотрудник получает только относящиеся к нему задачи.",
+        "items": [
+          "Чек-листы с фото, комментариями и обязательными полями.",
+          "Согласование, возврат на доработку и журнал решений.",
+          "Связь с внутренней системой через доступные интеграции."
+        ]
+      },
+      {
+        "title": "Продумано до последнего действия",
+        "text": "В проект входят интерфейс, серверная логика, хранение данных и управление контентом. Проверяем вход, права доступа, повторные нажатия и обрывы соединения. Подключения запускаем после проверки доступов и тестовых операций. Отдельно согласуем, что AI делает самостоятельно, а что требует подтверждения человека.",
+        "items": [
+          "Адаптация под телефон, Telegram Desktop и выбранные языки.",
+          "Уведомления с настройками подписки и возможностью отключения.",
+          "Инструкции для команды, журнал ошибок и проверяемые критерии приёмки."
+        ]
+      }
+    ],
+    "sample": "Пример возможного решения: Mini App салона с выбором услуги и мастера, записью по актуальному расписанию, переносом визита и AI-ответами по правилам салона. Это предложение по составу проекта. Готовый кейс и его работающие подключения показываем после реализации."
+  },
+  "en": {
+    "meta": "TELEGRAM / BOTS / MINI APPS",
+    "title": "Closer to customers. Easier for your team.",
+    "text": "We build bots and Mini Apps for booking, ordering, questions and task approvals inside Telegram. We connect conversations to your calendar, CRM and business tools. Each flow serves a specific need, from a service menu to an AI assistant with human handover.",
+    "role": "CUSTOM SCENARIOS FOR YOUR BUSINESS",
+    "sections": [
+      {
+        "title": "Answers grounded in your knowledge",
+        "text": "An AI assistant works with your services, policies and documents. It explains terms, clarifies requests and prepares handovers. Knowledge answers include a source the user can access. Missing information or decisions outside its remit trigger a handover with the conversation context.",
+        "items": [
+          "An editable knowledge base with role-based access.",
+          "Draft mode for answers that need review before sending.",
+          "Conversation history, handover reason and an assigned team member."
+        ]
+      },
+      {
+        "title": "Booking without the back and forth",
+        "text": "For salons, barbers and service businesses: choose a service, specialist and available time. We connect your existing schedule or build a shared one. Availability is checked before confirmation to prevent conflicting bookings. Rescheduling and cancellations follow your rules.",
+        "items": [
+          "Clear prices and duration before choosing a time.",
+          "Upcoming appointments, visit history and repeat booking.",
+          "Opt-in reminders and administrator notifications."
+        ]
+      },
+      {
+        "title": "An easier way to order again",
+        "text": "A café or restaurant Mini App brings together menus, preorders and loyalty. Guests select items and collection times, review orders and follow their status. Staff manage availability and confirm orders. Loyalty rules remain explicit, with a record of balance changes.",
+        "items": [
+          "Categories, options, unavailable items and repeat orders.",
+          "Pickup or delivery with service-area checks.",
+          "Payments once an appropriate provider is connected."
+        ]
+      },
+      {
+        "title": "Every enquiry has a next step",
+        "text": "A short conversation gathers the request, location, timing and contact details, with photos or documents. Information reaches your CRM with context for a manager to act. The customer receives an acknowledgement. If the integration is unavailable, the request is retained for another delivery attempt.",
+        "items": [
+          "Questions tailored to the selected service.",
+          "Duplicate checks and assignment to an owner.",
+          "A visible processing status and an agreed next step."
+        ]
+      },
+      {
+        "title": "Team requests that stay on track",
+        "text": "We design focused flows for reporting an issue, approving a purchase, handing over a shift or completing an inspection. Each action has an owner, deadline and status. Managers see what needs attention; team members receive the tasks relevant to their role.",
+        "items": [
+          "Checklists with photos, comments and required fields.",
+          "Approvals, requests for changes and a decision history.",
+          "Connections to internal tools through supported integrations."
+        ]
+      },
+      {
+        "title": "Designed through to completion",
+        "text": "Delivery includes the interface, backend, data storage and content controls. We test identity, permissions, repeated taps and lost connections. Integrations go live after access checks and test transactions. Together, we define which actions AI can perform independently and which require approval.",
+        "items": [
+          "Layouts for phones, Telegram Desktop and selected languages.",
+          "Notification preferences with an option to unsubscribe.",
+          "Team instructions, error logs and testable acceptance criteria."
+        ]
+      }
+    ],
+    "sample": "Possible project: a salon Mini App with specialist selection, live availability, rescheduling and AI answers based on salon policies. This is proposed scope; the completed case and connected services are presented after implementation."
+  }
+}

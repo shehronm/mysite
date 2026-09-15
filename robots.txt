@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mira-digital-practice-polished.mirzoevsehron05.chatgpt.site/sitemap.xml

@@ -1,0 +1,25 @@
+/* Language is a normal navigation link: usable before scripts and on every viewport. */
+.site-header{grid-template-columns:minmax(4.5rem,1fr) minmax(8rem,1fr) auto auto auto;gap:clamp(.5rem,1.4vw,1.5rem)}
+.site-header:has(.motion-toggle[hidden]){grid-template-columns:minmax(4.5rem,1fr) minmax(8rem,1fr) auto auto}
+.language-switch{display:flex;align-items:center;gap:0;flex-shrink:0}
+.language-switch a{display:grid;place-items:center;min-width:34px;min-height:44px;font:700 .75rem/1.2 'Courier New',monospace;letter-spacing:.04em;color:inherit;text-underline-offset:6px}
+.language-switch a[aria-current]{text-decoration:underline;text-decoration-thickness:1px}
+.language-switch a:not([aria-current]){opacity:.6}.language-switch a:hover{opacity:1}
+html[lang='ru'] .micro{letter-spacing:.035em}
+html[lang='ru'] .page-title{letter-spacing:-.055em}
+html[lang='ru'] .site-nav a{letter-spacing:0}
+html[lang='ru'] .about-poster:after{content:'НЕЗАВИСИМАЯ DIGITAL-СТУДИЯ'}
+html[lang='ru'] :is(h1,h2,h3){hyphens:auto;overflow-wrap:anywhere}
+@media(max-width:1100px) and (min-width:901px){.site-header{grid-template-columns:1fr auto auto auto}.site-header:has(.motion-toggle[hidden]){grid-template-columns:1fr auto auto}.site-descriptor{display:none}.site-nav{gap:1rem}}
+@media(max-width:900px){.site-header{grid-template-columns:minmax(0,1fr) auto auto auto;gap:.5rem}.site-header:has(.motion-toggle[hidden]){grid-template-columns:minmax(0,1fr) auto auto}.menu-toggle{gap:.45rem}.motion-toggle{border-left:0}.language-switch a{min-width:32px}}
+@media(max-width:360px){.site-header{gap:.25rem}.site-brand{font-size:1.45rem}.menu-toggle{font-size:.75rem;gap:.25rem}}
+/* The controls may wrap when the reader enlarges text; Work measures this height. */
+@media(max-width:900px){.site-header{display:flex;flex-wrap:wrap;height:auto;min-height:calc(var(--header-height) + env(safe-area-inset-top))}.site-brand{margin-right:auto}.menu-toggle,.motion-toggle{flex-shrink:0}}
+@media(max-width:600px){html[lang='ru'] .contact-page h2{font-size:calc((100vw - 2 * var(--gutter)) * .215)}}
+
+/* Stage 2 / protect Russian display typography from awkward mid-word hyphenation. */
+html[lang='ru'] :is(.trust-page,.page-reviews,.page-contact) :is(h1,h2,h3){hyphens:none;overflow-wrap:normal;word-break:normal}
+html[lang='ru'] .proof-hero h1{max-width:14ch;font-size:clamp(3rem,9.4vw,10.5rem)}
+html[lang='ru'] .trust-grid h2{font-size:clamp(1.85rem,3.55vw,3.8rem)}
+html[lang='ru'] .process-intro h2,html[lang='ru'] .fit-copy h2,html[lang='ru'] .proof-project-head h2,html[lang='ru'] .proof-checks-head h2,html[lang='ru'] .proof-cta h2{overflow-wrap:normal}
+@media(max-width:700px){html[lang='ru'] .proof-hero h1{font-size:12.5vw;max-width:15ch}html[lang='ru'] .trust-grid h2{font-size:1.85rem}}

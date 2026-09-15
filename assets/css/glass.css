@@ -1,0 +1,68 @@
+/* One glass surface. The header is outside the contained reading area. */
+.glass-layer{
+ --glass-pad:clamp(22px,3.4vw,40px);--glass-height:calc(100dvh - 48px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+ inset:0;margin:auto;padding:0;width:min(64rem,calc(100% - 48px));max-width:none;
+ max-height:var(--glass-height);
+ border:1px solid #ffffffb8;border-radius:32px;overflow:hidden;color:#111b24;color-scheme:light;
+ background:linear-gradient(125deg,#f7fafbea,#eaf0f5d9 52%,#e8edf4e3);
+ box-shadow:0 24px 80px #040b1640,inset 0 1px 0 #fff;
+ backdrop-filter:blur(30px) saturate(1.25);-webkit-backdrop-filter:blur(30px) saturate(1.25);
+}
+.glass-layer::backdrop{background:#03091266;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.glass-layer[open]{animation:glass-in .36s cubic-bezier(.16,1,.3,1) both}
+.glass-layer.is-closing{animation:glass-out .18s ease both}
+.glass-panel{margin:0;padding:0;display:flex;flex-direction:column;min-width:0;max-height:calc(var(--glass-height) - 2px);overflow:hidden}
+.glass-top{display:grid;grid-template-columns:minmax(0,1fr) 48px;gap:24px;align-items:center;flex:0 0 auto;padding:24px var(--glass-pad) 20px;position:relative;z-index:2}
+#glassMeta{font-size:.8125rem;line-height:1.5;letter-spacing:.035em;overflow-wrap:anywhere;padding:0;margin:0}
+.glass-close,.glass-next i{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;min-width:48px;min-height:48px;padding:0;border:1px solid #ffffffd9;border-radius:50%;background:#ffffff38;box-shadow:inset 0 1px 0 #ffffff80;color:#15212b}
+.glass-close svg,.glass-next svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.glass-scroll{position:relative;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;margin:0 12px 18px;padding:10px calc(var(--glass-pad) - 12px) 18px;scroll-padding-block:12px;scrollbar-width:thin;scrollbar-color:#6c798366 transparent}
+.glass-scroll:focus-visible{outline:2px solid #2449ac;outline-offset:-4px;border-radius:8px}
+.glass-scroll::-webkit-scrollbar{width:5px}.glass-scroll::-webkit-scrollbar-track{background:transparent}.glass-scroll::-webkit-scrollbar-thumb{border-radius:8px;background:#6c798366}
+.glass-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:start;margin:0;padding:0}
+.glass-main h2{position:sticky;top:0;align-self:start;font-size:clamp(2rem,4.6vw,4.5rem);line-height:1.03;letter-spacing:-.055em;font-weight:600;margin:0;max-width:none;overflow-wrap:anywhere;text-wrap:balance}
+.glass-side{display:flex;flex-direction:column;gap:24px;min-width:0;padding:0}
+.glass-side p{margin:0;font-size:1rem;line-height:1.6;overflow-wrap:anywhere}
+#glassText{white-space:pre-line}
+.glass-side .glass-role{margin:0;font-size:.8125rem;line-height:1.5;color:#36424d}
+.glass-side .sample-note{border-top:1px solid #6e7a8545;padding-top:16px;font-size:.75rem;line-height:1.5;color:#46525c}
+.glass-next{display:flex;align-items:center;gap:16px;width:fit-content;max-width:100%;min-height:48px;text-align:left;font:700 .875rem/1.4 'Courier New',monospace;text-transform:uppercase;padding:0;margin-top:4px}
+.glass-next>span{overflow-wrap:anywhere}
+.glass-details{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 48px;margin-top:36px}
+.glass-details section{border-top:1px solid #69778455;padding-top:20px;min-width:0}
+.glass-details h3{margin:0 0 12px;font-size:1.25rem;font-weight:600;line-height:1.25;letter-spacing:-.025em;overflow-wrap:anywhere}
+.glass-details p,.glass-details li{font-size:1rem;line-height:1.6;overflow-wrap:anywhere}
+.glass-details p{margin:0}.glass-details ul{padding-left:1.2em;margin:12px 0 0}.glass-details li+li{margin-top:8px}
+.glass-resources{display:flex;flex-wrap:wrap;gap:10px}.glass-resources:empty{display:none}
+.glass-resources a{display:inline-flex;align-items:center;padding:10px 16px;min-height:44px;background:#172330;color:#fff;border-radius:4px;font-size:.875rem;line-height:1.4;overflow-wrap:anywhere}
+.glass-resources a:hover{background:#2149db}.glass-footer{border-top:1px solid #69778455;margin-top:32px;padding-top:24px}
+.glass-main h2{position:static}
+.glass-preview{margin:32px 0 0;border:0;background:transparent;overflow:hidden;border-radius:0}
+.glass-preview[hidden]{display:none}
+.glass-preview-link{display:block;position:relative;overflow:hidden;background:#101417}.glass-preview-link:after{content:attr(data-label);position:absolute;right:14px;top:14px;padding:9px 11px;background:#0a0d0da6;border:1px solid #ffffffb8;color:#fff;font:700 .7rem/1 'Courier New',monospace;letter-spacing:.035em;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.glass-preview img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;transition:transform .7s var(--ease)}.glass-preview-link:hover img{transform:scale(1.02)}.glass-preview-link:focus-visible{outline:3px solid #2449ac;outline-offset:-3px}
+.glass-preview figcaption{padding:12px 0 0;color:#36424d;font-size:.8125rem;line-height:1.5;letter-spacing:.025em;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){.glass-preview img{transition:none}.glass-preview-link:hover img{transform:none}}
+@media(max-width:700px){.glass-details{grid-template-columns:minmax(0,1fr);gap:24px}.glass-resources a{max-width:100%}}
+.glass-next i{font-style:normal}
+.glass-close:focus-visible,.glass-next:focus-visible{outline:2px solid #2449ac;outline-offset:3px}
+@keyframes glass-in{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes glass-out{to{opacity:0;transform:translateY(8px) scale(.99)}}
+@media(max-width:1000px){.glass-main{grid-template-columns:minmax(0,1fr);gap:28px}.glass-main h2{position:static;font-size:clamp(2rem,6.6vw,4rem);max-width:18ch}.glass-side{gap:22px}}
+@media(max-width:600px){
+ .glass-layer{--glass-pad:24px;--glass-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));width:calc(100% - 24px);border-radius:26px}
+ .glass-top{padding-top:18px;padding-bottom:14px;gap:16px;grid-template-columns:minmax(0,1fr) 44px}
+ .glass-close,.glass-next i{width:44px;height:44px;min-width:44px;min-height:44px;flex-basis:44px}
+ .glass-scroll{margin:0 8px 16px;padding:8px calc(var(--glass-pad) - 8px) 14px}
+ .glass-main h2{font-size:clamp(2rem,8.2vw,3rem)}
+ #glassMeta{font-size:.75rem;line-height:1.45;letter-spacing:.025em}
+}
+@media(max-height:500px){.glass-layer{--glass-height:calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));border-radius:22px}.glass-top{padding-top:10px;padding-bottom:10px}.glass-scroll{margin-bottom:10px}}
+@supports not (backdrop-filter:blur(1px)){.glass-layer{background:#eaf0f5}.glass-layer::backdrop{background:#030912bf}}
+@media(prefers-reduced-motion:reduce){.glass-layer[open],.glass-layer.is-closing{animation:none}}
+
+
+/* rev7 modal QA: previews are compact supporting visuals, never a giant blank panel. */
+.glass-preview{max-width:100%}
+.glass-preview img{aspect-ratio:16/7!important;max-height:360px;object-fit:cover!important;object-position:center}
+@media(max-width:600px){.glass-preview img{aspect-ratio:16/9!important;max-height:220px}}
