@@ -83,7 +83,10 @@
       ticking=false;
       const y=Math.max(0,scrollY), delta=y-lastY;
       const nearBottom=(innerHeight+y)>=(document.documentElement.scrollHeight-140);
-      if(y<280)setVisible(false);
+      const terminal=qs('.page-index .contact,.proof-cta,.trust-proof-cta');
+      const terminalRect=terminal?.getBoundingClientRect();
+      const terminalInView=!!terminalRect && terminalRect.top<innerHeight*.82 && terminalRect.bottom>innerHeight*.08;
+      if(y<280||terminalInView)setVisible(false);
       else if(nearBottom)setVisible(true);
       else if(delta<-7)setVisible(true);
       else if(delta>7)setVisible(false);
@@ -171,6 +174,19 @@
       const href=link.getAttribute('href')||'';
       if(/work\.html(?:$|#)/.test(href))link.setAttribute('href',href.split('#')[0]+'#projects');
     });
+    // Proof cards point to desktop scene hashes. Map them to the generated mobile cases.
+    qsa('a[href*="work.html#"]').forEach(link=>{
+      const href=link.getAttribute('href')||'';
+      const [base,hash='']=href.split('#');
+      if(hash && hash!=='projects' && !hash.startsWith('m-')) link.setAttribute('href',`${base}#m-${hash}`);
+    });
+    // On mobile, keep the user inside the guided contact flow instead of opening an email draft too early.
+    if(body.classList.contains('page-index')){
+      const routes=qsa('.contact-route');
+      const contact=linkFor('contact.html',isRu?'contact.html':'contact.html').split('#')[0];
+      if(routes[0]) routes[0].setAttribute('href',`${contact}#brief-form`);
+      if(routes[1]) routes[1].setAttribute('href',`${contact}#call-route`);
+    }
   }
 
 
@@ -198,19 +214,47 @@
     footer.prepend(a);
   }
 
+  function normalizeMobileText(){
+    // Prevent diagonal arrows from becoming emoji glyphs in iOS Safari.
+    qsa('a,button').forEach(el=>{
+      const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
+      let node;
+      while((node=walker.nextNode())) node.nodeValue=node.nodeValue.replace(/[↗↘]/g,'→');
+    });
+    const submit=qs('.brief-submit');
+    if(submit) submit.textContent=isRu?'Подготовить письмо →':'Prepare email →';
+    if(body.classList.contains('page-reviews')){
+      qsa('.proof-links').forEach(group=>{
+        const links=qsa('a',group);
+        if(links[0]) links[0].textContent=isRu?'Открыть сайт →':'Live site →';
+        if(links[1]) links[1].textContent='GitHub →';
+        if(links[2]) links[2].textContent=isRu?'Смотреть кейс →':'View case →';
+      });
+    }
+  }
+
   function setupGeneratedReveal(){
     if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-    const targets=qsa('.mobile-value-panel article,.mobile-principles li,.mobile-work-head>*,.mobile-case,.mobile-case-body>*,.mobile-case-visual>*');
+    const targets=qsa('.mobile-value-panel article,.mobile-principles li,.mobile-work-head>*,.mobile-case,.mobile-case-body>*,.mobile-case-visual>*,.offer-heading,.offer-head>p,.offer-row,.practice-top,.practice-title,.trust-bridge>*,.contact-top,.contact>h2,.contact-route,.trust-grid article,.process-intro>*,.process-list article,.fit-copy>*,.fit-grid>div,.trust-proof-cta>*,.proof-hero-inner>*,.proof-policy>*,.proof-project-head>*,.proof-card,.proof-checks-head>*,.check-grid article,.proof-cta>*,.contact-kicker,.contact-page>h2,.contact-intro,.contact-option,.contact-direct,.brief-heading>*');
+    targets.forEach(el=>el.classList.add('reveal-ready'));
     const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
       if(entry.isIntersecting){entry.target.classList.add('section-arrive');io.unobserve(entry.target)}
     }),{threshold:.08,rootMargin:'0px 0px -8% 0px'});
     targets.forEach((el,index)=>{el.style.setProperty('--m-delay',`${Math.min(index%4,3)*45}ms`);io.observe(el)});
   }
 
+  function syncThemeColor(){
+    const meta=qs('meta[name="theme-color"]');
+    if(!meta)return;
+    if(!meta.dataset.desktopColor)meta.dataset.desktopColor=meta.getAttribute('content')||'#0b0f10';
+    meta.setAttribute('content',mq.matches?'#f5f5f7':meta.dataset.desktopColor);
+  }
+
   function apply(){
+    syncThemeColor();
     if(!mq.matches){root.classList.remove('mobile-experience');return;}
     root.classList.add('mobile-experience');
-    addQuickbar();addHomeValueStrip();addHomePrinciples();buildMobileWork();patchWorkLinks();enhanceMobileMenu();addGlassCTA();setupGeneratedReveal();
+    addQuickbar();addHomeValueStrip();addHomePrinciples();buildMobileWork();patchWorkLinks();enhanceMobileMenu();addGlassCTA();normalizeMobileText();setupGeneratedReveal();
   }
   apply();mq.addEventListener?.('change',apply);
 })();

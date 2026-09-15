@@ -377,3 +377,254 @@
   .menu-toggle{min-height:44px!important}
   .mobile-work-nav a{min-height:40px}
 }
+
+/* === Mobile production polish v3: iOS layout, readability, conversion === */
+@media (max-width:932px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  *,*::before,*::after{box-sizing:border-box}
+
+  /* Home: reduce visual shouting and restore readable supporting copy. */
+  .page-index .offer{padding-top:2.55rem!important;padding-bottom:2.7rem!important}
+  .page-index .offer-heading h2{
+    font-size:clamp(2.35rem,10.8vw,3.45rem)!important;
+    line-height:.95!important;
+    max-width:10.5ch!important;
+    margin:.58rem 0 .95rem!important;
+  }
+  .page-index .offer-head>p{
+    margin:0 0 1.35rem!important;
+    padding:0!important;
+    max-width:31rem!important;
+    color:#5f6067!important;
+    font-size:.96rem!important;
+    line-height:1.5!important;
+  }
+  .page-index .offer-list{gap:.58rem!important}
+  .page-index .offer-row{
+    grid-template-columns:28px minmax(0,1fr) 26px!important;
+    gap:.2rem .65rem!important;
+    padding:.9rem .95rem!important;
+    border-radius:17px!important;
+  }
+  .page-index .offer-row>.micro:first-child{grid-column:1;grid-row:1/3!important;margin-top:.08rem!important}
+  .page-index .offer-name{grid-column:2!important;grid-row:1!important;font-size:1rem!important;line-height:1.12!important}
+  .page-index .offer-desc{grid-column:2/4!important;grid-row:2!important;font-size:.84rem!important;line-height:1.43!important;color:#62636a!important;padding-top:.16rem!important}
+  .page-index .offer-arrow{grid-column:3!important;grid-row:1!important;align-self:center!important;font-size:1.08rem!important}
+
+  /* Proof hero: remove inherited desktop inset/double padding. */
+  .proof-hero{padding:1.9rem 1.05rem 2.25rem!important}
+  .proof-hero-inner{padding:0!important;min-height:0!important}
+  .proof-hero h1{
+    font-size:clamp(2.6rem,12.3vw,3.8rem)!important;
+    line-height:.91!important;
+    max-width:9ch!important;
+    margin:.62rem 0 .9rem!important;
+  }
+  .proof-hero p{
+    margin:0!important;
+    max-width:29rem!important;
+    font-size:.96rem!important;
+    line-height:1.5!important;
+    color:#5f6066!important;
+  }
+  .proof-hero-actions{margin:1.25rem 0 0!important;width:100%!important}
+  .proof-hero-actions a{width:100%!important;min-height:50px!important}
+
+  .proof-policy,.proof-projects,.proof-checks,.proof-cta{padding:2.35rem 1.05rem!important}
+  .proof-policy h2,.proof-project-head h2,.proof-checks-head h2{
+    font-size:clamp(2rem,9.7vw,2.75rem)!important;
+    line-height:1!important;
+    margin:.55rem 0 .85rem!important;
+  }
+  .proof-policy p,.proof-checks p{font-size:.92rem!important;line-height:1.5!important}
+  .proof-cards{margin-top:1.4rem!important;gap:.7rem!important}
+  .proof-card{border-radius:18px!important;padding:1rem!important}
+  .proof-card h3{font-size:1.28rem!important;margin:.5rem 0!important}
+  .proof-card p,.proof-card li{font-size:.86rem!important;line-height:1.46!important}
+
+  /* Four proof signals become a readable list instead of cramped 2-up cards. */
+  .check-grid{
+    grid-template-columns:1fr!important;
+    gap:.55rem!important;
+    margin-top:1.25rem!important;
+    border:0!important;
+  }
+  .check-grid article{
+    min-height:0!important;
+    display:grid!important;
+    grid-template-columns:38px minmax(0,1fr)!important;
+    grid-template-areas:"num title" "num body"!important;
+    gap:.28rem .75rem!important;
+    align-items:start!important;
+    padding:.95rem!important;
+    border:1px solid #dedee3!important;
+    border-radius:16px!important;
+    background:#fff!important;
+  }
+  .check-grid article>.micro{grid-area:num!important;margin-top:.12rem!important;color:#7b7c83!important}
+  .check-grid h3{grid-area:title!important;margin:0!important;font-size:1.08rem!important;line-height:1.15!important}
+  .check-grid p{grid-area:body!important;margin:0!important;font-size:.85rem!important;line-height:1.43!important;color:#62636a!important}
+  .proof-cta{padding-bottom:calc(3rem + env(safe-area-inset-bottom))!important}
+  .proof-cta h2{font-size:clamp(2.1rem,10.2vw,2.85rem)!important;line-height:.98!important}
+
+  /* Contact routes: clear hierarchy, visible labels, full-width actions. */
+  .contact-page,.brief-section{padding-left:1rem!important;padding-right:1rem!important}
+  .contact-page{padding-top:2.35rem!important;padding-bottom:2.45rem!important}
+  .contact-page>h2{font-size:clamp(2.3rem,10.6vw,3.05rem)!important;line-height:.96!important;margin:.55rem 0 .78rem!important}
+  .contact-intro{font-size:.94rem!important;line-height:1.5!important;color:#616269!important}
+  .contact-options{margin-top:1.1rem!important;gap:.62rem!important}
+  .contact-option{
+    padding:1rem!important;
+    border-radius:18px!important;
+    gap:.55rem!important;
+  }
+  .contact-option>.micro{
+    color:#75767d!important;
+    opacity:1!important;
+    margin:0!important;
+    font-size:.66rem!important;
+  }
+  .contact-option b{font-size:1.18rem!important;line-height:1.12!important;margin:.16rem 0 .2rem!important;max-width:22ch!important}
+  .contact-option>span:not(.micro){font-size:.88rem!important;line-height:1.46!important;color:#62636a!important;margin:0!important}
+  .route-link{
+    align-self:stretch!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:48px!important;
+    margin-top:.45rem!important;
+    padding:.7rem .85rem!important;
+    border:0!important;
+    border-radius:12px!important;
+    text-align:center!important;
+    white-space:normal!important;
+    line-height:1.2!important;
+    font-size:.87rem!important;
+    overflow-wrap:anywhere!important;
+  }
+  .contact-option:not(:first-child) .route-link{background:#f1f1f3!important}
+  .contact-direct{margin-top:1.65rem!important}
+  .contact-status{font-size:.88rem!important;line-height:1.48!important}
+
+  /* Brief form: fix iOS radio layout inherited from generic input width:100%. */
+  .brief-section{padding-top:2.45rem!important;padding-bottom:calc(3.3rem + env(safe-area-inset-bottom))!important}
+  .brief-heading h2{font-size:clamp(2.15rem,10vw,2.8rem)!important;line-height:.98!important}
+  .brief-heading p{font-size:.9rem!important;line-height:1.5!important}
+  .brief-form fieldset{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:.5rem!important;
+    border:0!important;
+    border-top:1px solid #e1e1e5!important;
+    padding:1.15rem 0 0!important;
+  }
+  .brief-form legend{padding:0!important;margin:0 0 .55rem!important;color:#3d3e44!important}
+  .brief-form .radio{
+    display:flex!important;
+    align-items:center!important;
+    gap:.75rem!important;
+    min-height:52px!important;
+    width:100%!important;
+    margin:0!important;
+    padding:.72rem .82rem!important;
+    border:1px solid #dedee3!important;
+    border-radius:13px!important;
+    background:#f7f7f8!important;
+    cursor:pointer!important;
+  }
+  .brief-form .radio input{
+    appearance:none!important;
+    -webkit-appearance:none!important;
+    width:22px!important;
+    height:22px!important;
+    min-width:22px!important;
+    min-height:22px!important;
+    flex:0 0 22px!important;
+    margin:0!important;
+    padding:0!important;
+    border:1.5px solid #96979d!important;
+    border-radius:50%!important;
+    background:#fff!important;
+    position:relative!important;
+  }
+  .brief-form .radio input:checked{border:6px solid var(--m-blue)!important}
+  .brief-form .radio input:focus-visible{outline:3px solid rgba(10,103,209,.2)!important;outline-offset:2px!important}
+  .brief-form .radio span{
+    display:block!important;
+    margin:0!important;
+    color:#17171a!important;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+    font-size:.92rem!important;
+    font-weight:650!important;
+    line-height:1.25!important;
+    letter-spacing:0!important;
+    text-transform:none!important;
+    overflow-wrap:normal!important;
+  }
+  .brief-actions{gap:.5rem!important}
+  .brief-submit,.brief-copy,.brief-actions>a{width:100%!important;min-width:0!important;padding:.72rem .75rem!important;text-align:center!important;white-space:normal!important;line-height:1.2!important}
+
+  /* More sections participate in the gentle mobile reveal. */
+  .mobile-experience .reveal-ready{opacity:0;transform:translateY(-10px)}
+  .mobile-experience .reveal-ready.section-arrive{animation:mobile-arrive-v3 .52s cubic-bezier(.16,1,.3,1) both!important}
+  @keyframes mobile-arrive-v3{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+}
+
+@media (max-width:359px){
+  .page-index .offer-heading h2{font-size:2.2rem!important}
+  .page-index .offer-row{padding:.84rem!important}
+  .proof-hero h1{font-size:2.45rem!important}
+  .contact-option b{font-size:1.08rem!important}
+  .route-link{font-size:.82rem!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .mobile-experience .reveal-ready{opacity:1!important;transform:none!important}
+}
+
+/* === Mobile production polish v3.1: terminal CTA and project navigation === */
+@media (max-width:932px){
+  .mobile-work-nav a{min-height:44px!important}
+  .page-index .contact-link{
+    grid-column:1/-1!important;
+    justify-self:stretch!important;
+    width:100%!important;
+    min-height:52px!important;
+    margin-top:.25rem!important;
+    padding:.72rem .9rem!important;
+    border:0!important;
+    border-radius:14px!important;
+    background:#111!important;
+    color:#fff!important;
+    display:flex!important;
+    justify-content:center!important;
+    gap:.6rem!important;
+    font-size:.88rem!important;
+    font-weight:750!important;
+    line-height:1.2!important;
+    letter-spacing:-.01em!important;
+    text-align:center!important;
+  }
+  .page-index .contact{padding-bottom:calc(3rem + env(safe-area-inset-bottom))!important}
+  html[lang="ru"] .proof-links a:first-child{font-size:.86rem!important}
+}
+
+/* Mobile form feedback must remain visible on the light theme. */
+@media (max-width:932px){
+  .brief-form .field-error{
+    margin-top:.4rem!important;
+    color:#b42318!important;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+    font-size:.78rem!important;
+    font-weight:650!important;
+    line-height:1.35!important;
+    letter-spacing:0!important;
+    text-transform:none!important;
+  }
+  .brief-form :is(input,select,textarea)[aria-invalid="true"]{
+    border-color:#c94b43!important;
+    outline:2px solid rgba(180,35,24,.14)!important;
+    outline-offset:1px!important;
+  }
+  .brief-status.is-error{color:#b42318!important}
+  .brief-status.is-success{color:#267247!important}
+}
