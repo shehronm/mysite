@@ -247,7 +247,7 @@
     const meta=qs('meta[name="theme-color"]');
     if(!meta)return;
     if(!meta.dataset.desktopColor)meta.dataset.desktopColor=meta.getAttribute('content')||'#0b0f10';
-    meta.setAttribute('content',mq.matches?'#f5f5f7':meta.dataset.desktopColor);
+    meta.setAttribute('content',mq.matches?'#f7f4ee':meta.dataset.desktopColor);
   }
 
   function apply(){
@@ -259,18 +259,18 @@
   apply();mq.addEventListener?.('change',apply);
 })();
 
-/* Mobile v5: calm scroll-driven background transitions. Desktop is intentionally untouched. */
+/* Mobile v6: clearer calm scroll-driven background transitions. Desktop is intentionally untouched. */
 (()=>{
   const mq=window.matchMedia('(max-width: 932px)');
   const body=document.body;
   if(!body)return;
 
   const C={
-    warm:'#f7f7f5',
-    cool:'#f1f3f5',
-    mist:'#edf2f8',
-    stone:'#f4f0ec',
-    sage:'#f0f3f0'
+    warm:'#f7f4ee',
+    cool:'#eef2f5',
+    mist:'#e5ecf4',
+    stone:'#f1e9e2',
+    sage:'#e8efea'
   };
   let targets=[];
   let ticking=false;

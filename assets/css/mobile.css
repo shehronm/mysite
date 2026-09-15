@@ -276,7 +276,7 @@
   .mobile-principles li{display:grid;grid-template-columns:2.1rem minmax(0,1fr);gap:.75rem;padding:1rem 0;border-bottom:1px solid #dcdce0}
   .mobile-principles>li>span{font-size:.68rem;font-weight:800;letter-spacing:.08em;color:#86868c;padding-top:.18rem}
   .mobile-principles strong{display:block;font-size:1.02rem;letter-spacing:-.025em;color:#111;margin:0 0 .18rem}
-  .mobile-principles p{font-size:.84rem!important;line-height:1.42!important;color:#6d6d73!important;margin:0!important}
+  .mobile-principles p{font-size:.84rem!important;line-height:1.42!important;color:var(--m-muted)!important;margin:0!important}
 
   /* Work is a mobile-native catalogue, not a hidden desktop carousel. */
   .mobile-work{padding:1.8rem 0 3rem!important;background:#f5f5f7!important}
@@ -629,25 +629,25 @@
   .brief-status.is-success{color:#267247!important}
 }
 
-/* === Mobile v5: calm scroll-reactive background system === */
+/* === Mobile v6: balanced, visibly distinct scroll-reactive background system === */
 @media (max-width:932px){
   :root{
-    --m-scroll-bg:#f7f7f5;
-    --m-bg-warm:#f7f7f5;
-    --m-bg-cool:#f1f3f5;
-    --m-bg-mist:#edf2f8;
-    --m-bg-stone:#f4f0ec;
-    --m-bg-sage:#f0f3f0;
+    --m-scroll-bg:#f7f4ee;
+    --m-bg-warm:#f7f4ee;
+    --m-bg-cool:#eef2f5;
+    --m-bg-mist:#e5ecf4;
+    --m-bg-stone:#f1e9e2;
+    --m-bg-sage:#e8efea;
     --m-text:#111113;
-    --m-muted:#5c6066;
-    --m-micro:#686b70;
+    --m-muted:#50565e;
+    --m-micro:#5c6269;
   }
 
-  html{background:#f7f7f5!important}
+  html{background:#f7f4ee!important}
   body{
     background-color:var(--m-scroll-bg)!important;
     color:var(--m-text)!important;
-    transition:background-color .78s cubic-bezier(.22,.72,.24,1)!important;
+    transition:background-color .88s cubic-bezier(.22,.72,.24,1)!important;
   }
 
   /* The page background now carries the section transition. Sections stay transparent. */
@@ -704,7 +704,7 @@
 
   /* Header remains legible and visually connected to the changing canvas. */
   .site-header{
-    background:rgba(247,247,245,.86)!important;
+    background:rgba(247,244,238,.88)!important;
     border-bottom-color:rgba(17,17,19,.09)!important;
   }
 
@@ -734,7 +734,7 @@
   }
 }
 
-/* Mobile v5 contrast hardening: secondary labels stay AA-readable on all light canvases. */
+/* Mobile v6 contrast hardening: secondary labels stay AA-readable on all light canvases. */
 @media (max-width:932px){
   .page-index .offer-row>.micro:first-child,
   .process-list em,
@@ -742,7 +742,7 @@
   .contact-option>.micro,
   .mobile-case-meta,
   .mobile-work-head .eyebrow{
-    color:#686b70!important;
+    color:#5c6269!important;
     opacity:1!important;
   }
 }
