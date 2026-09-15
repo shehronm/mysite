@@ -76,7 +76,7 @@
     menu.querySelector('[aria-current="page"]')?.focus();
   });
   menu?.querySelector('.menu-close').addEventListener('click',()=>closeDialog(menu));
-  matchMedia('(min-width:901px)').addEventListener('change',e=>{if(e.matches)closeDialog(menu,true)});
+  matchMedia('(min-width:933px)').addEventListener('change',e=>{if(e.matches)closeDialog(menu,true)});
 
   if (glass && window.MiraContent) {
     const fields = {

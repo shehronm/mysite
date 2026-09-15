@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  if (matchMedia('(max-width: 932px)').matches) return;
   document.addEventListener('click', event => {
     const button=event.target.closest('[data-journey-step]');
     if(!button)return;

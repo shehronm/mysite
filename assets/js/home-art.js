@@ -1,5 +1,6 @@
 
 (function(){
+  if (matchMedia('(max-width: 932px)').matches) return;
   const svg=document.getElementById('heroWave');
   if(!svg) return;
   const NS='http://www.w3.org/2000/svg';

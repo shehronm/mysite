@@ -1,6 +1,7 @@
 /* A chapter has horizontal screens; crossing a chapter boundary is vertical. */
 (() => {
   'use strict';
+  if (matchMedia('(max-width: 932px)').matches) return;
   const t=window.MiraI18n?.t??((text,values={})=>text.replace(/\{(\w+)\}/g,(_,key)=>values[key]??''));
   const root=document.documentElement;
   const viewport=document.querySelector('.work-viewport');
