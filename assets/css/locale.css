@@ -23,3 +23,10 @@ html[lang='ru'] .proof-hero h1{max-width:14ch;font-size:clamp(3rem,9.4vw,10.5rem
 html[lang='ru'] .trust-grid h2{font-size:clamp(1.85rem,3.55vw,3.8rem)}
 html[lang='ru'] .process-intro h2,html[lang='ru'] .fit-copy h2,html[lang='ru'] .proof-project-head h2,html[lang='ru'] .proof-checks-head h2,html[lang='ru'] .proof-cta h2{overflow-wrap:normal}
 @media(max-width:700px){html[lang='ru'] .proof-hero h1{font-size:12.5vw;max-width:15ch}html[lang='ru'] .trust-grid h2{font-size:1.85rem}}
+
+/* QA fix: Russian Reviews CTA must stay inside narrow viewports. */
+@media(max-width:700px){
+  html[lang='ru'] .page-reviews :is(.proof-policy,.proof-project-head,.proof-checks-head,.proof-cta),
+  html[lang='ru'] .page-reviews :is(.proof-policy,.proof-project-head,.proof-checks-head,.proof-cta)>*{min-width:0;max-width:100%}
+  html[lang='ru'] .page-reviews .proof-cta h2{max-width:100%;font-size:clamp(2rem,10.8vw,3.5rem);overflow-wrap:anywhere;word-break:normal}
+}

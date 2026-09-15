@@ -554,3 +554,25 @@ html.work-enhanced{overflow:hidden;scroll-behavior:auto}
 @media(max-width:480px) and (max-height:700px){
   .journey-points li{font-size:.52rem;padding:.28rem .32rem}
 }
+
+/* QA fix: short phones keep overview proof and actions visible above the navigation chrome. */
+@media(max-width:480px) and (max-height:700px){
+  .work-enhanced .work-dock{padding-top:4px;padding-bottom:calc(4px + env(safe-area-inset-bottom));gap:6px}
+  .work-enhanced .work-position{font-size:.7rem;line-height:1.2;gap:1px 9px}
+  .work-enhanced .stage-position{font-size:.66rem}
+  .work-enhanced .project-rail{padding-top:2px;padding-bottom:2px}
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-card{gap:6px!important;padding:7px 12px 14px!important;justify-content:flex-start!important}
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-copy{gap:5px!important}
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-kicker{font-size:.58rem;line-height:1.25}
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-title{font-size:clamp(1.55rem,7.4vw,2rem)!important;line-height:.94!important}
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-summary{font-size:.7rem!important;line-height:1.25!important}
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-actions{display:flex;flex-wrap:nowrap;gap:8px!important;align-items:center}
+  .work-enhanced .scene.scene-overview.scrollable-slide .case-link,
+  .work-enhanced .scene.scene-overview.scrollable-slide .case-demo{min-height:44px!important;font-size:.67rem!important;line-height:1.15}
+  .work-enhanced .scene.scene-overview.scrollable-slide .case-link i{width:36px!important;height:36px!important;flex-basis:36px!important}
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-art.site-preview{width:min(54vw,180px)!important;min-height:0!important;max-height:none!important;aspect-ratio:4/3!important;margin-inline:auto!important;flex:0 0 auto}
+}
+@media(max-width:360px) and (max-height:640px){
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-summary{font-size:.66rem!important;line-height:1.2!important}
+  .work-enhanced .scene.scene-overview.scrollable-slide .scene-art.site-preview{width:min(50vw,160px)!important}
+}
