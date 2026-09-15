@@ -1,7 +1,7 @@
 PIPTAN: screenshot of https://piptan.ae/ (2026-09-14). Source: https://github.com/zironpro/piptan-real-estate
 KREMA: screenshot of https://krema-coffee.vercel.app/ (2026-09-14). Source: https://github.com/Georgy-ITech/krema-coffee
 HAAR: docs/homepage-hero.png from https://github.com/letsopencals/template-haar, retrieved 2026-09-14. The external live preview was not independently verified.
-Screenshots are used to identify the selected websites. Portfolio descriptions do not assert MIRA authorship or client results.
+Screenshots are used to identify the selected websites. Portfolio descriptions do not assert MIRO authorship or client results.
 
 HAAR source license:
 MIT License

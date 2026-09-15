@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  if(window.MiraAnalytics)return;
+  if(window.MiroAnalytics)return;
   window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
   const safePath=href=>{
     try{const url=new URL(href,location.href);return url.origin===location.origin?url.pathname:'external';}catch{return 'unknown';}
@@ -11,12 +11,12 @@
       if(['string','number','boolean'].includes(typeof value) || value===null)safe[key]=String(value).slice(0,80);
     });
     window.va('event',{name,data:safe});
-    document.dispatchEvent(new CustomEvent('mira:analytics',{detail:{name,data:safe}}));
+    document.dispatchEvent(new CustomEvent('miro:analytics',{detail:{name,data:safe}}));
   };
-  window.MiraAnalytics={track};
-  if(!document.querySelector('script[data-mira-analytics]')){
+  window.MiroAnalytics={track};
+  if(!document.querySelector('script[data-miro-analytics]')){
     const script=document.createElement('script');
-    script.defer=true;script.src='/_vercel/insights/script.js';script.dataset.miraAnalytics='vercel';
+    script.defer=true;script.src='/_vercel/insights/script.js';script.dataset.miroAnalytics='vercel';
     document.head.append(script);
   }
   document.addEventListener('click',event=>{

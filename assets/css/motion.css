@@ -78,7 +78,7 @@
 
 /* Progressive native page changes retain the header. No navigation interception. */
 @view-transition{navigation:auto}
-.site-header{view-transition-name:mira-header}
+.site-header{view-transition-name:miro-header}
 ::view-transition-old(root){animation:page-leave .16s ease-out both}
 ::view-transition-new(root){animation:page-enter .24s ease-out both}
 @keyframes page-leave{to{opacity:0}}@keyframes page-enter{from{opacity:0}to{opacity:1}}

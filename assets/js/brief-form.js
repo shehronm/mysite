@@ -4,11 +4,11 @@
   const forms=[...document.querySelectorAll('[data-brief-form]')];
   if(!forms.length)return;
   const messages={
-    en:{required:'Please complete the required fields before sending.',contact:'Enter a valid email address or Telegram username (for example @username).',copied:'Brief copied. Paste it into email, Telegram or any messenger.',copyFail:'Could not copy automatically. Select the text fields and send the details by email or Telegram.',opening:'Opening your email app with the prepared brief…',subject:'MIRA — Project brief'},
-    ru:{required:'Заполните обязательные поля перед отправкой.',contact:'Укажите корректный email или username Telegram (например @username).',copied:'Бриф скопирован. Вставьте его в email, Telegram или любой мессенджер.',copyFail:'Не удалось скопировать автоматически. Отправьте данные через email или Telegram.',opening:'Открываем почтовое приложение с подготовленным брифом…',subject:'MIRA — Бриф проекта'}
+    en:{required:'Please complete the required fields before sending.',contact:'Enter a valid email address or Telegram username (for example @username).',copied:'Brief copied. Paste it into email, Telegram or any messenger.',copyFail:'Could not copy automatically. Select the text fields and send the details by email or Telegram.',opening:'Opening your email app with the prepared brief…',subject:'MIRO — Project brief'},
+    ru:{required:'Заполните обязательные поля перед отправкой.',contact:'Укажите корректный email или username Telegram (например @username).',copied:'Бриф скопирован. Вставьте его в email, Telegram или любой мессенджер.',copyFail:'Не удалось скопировать автоматически. Отправьте данные через email или Telegram.',opening:'Открываем почтовое приложение с подготовленным брифом…',subject:'MIRO — Бриф проекта'}
   };
   const line=(label,value)=>value?.trim()?`${label}: ${value.trim()}`:'';
-  const track=(name,data)=>window.MiraAnalytics?.track?.(name,data);
+  const track=(name,data)=>window.MiroAnalytics?.track?.(name,data);
   function build(form){
     const data=new FormData(form), lang=form.dataset.lang==='ru'?'ru':'en';
     const labels=lang==='ru'?{name:'Имя',company:'Компания / бренд',contact:'Email / Telegram',type:'Тип проекта',scope:'Что нужно создать / улучшить',goal:'Бизнес-цель',timing:'Сроки',references:'Референсы / ссылки',next:'Удобный следующий шаг'}:{name:'Name',company:'Company / brand',contact:'Email / Telegram',type:'Project type',scope:'What needs to be built / improved',goal:'Business goal',timing:'Target timing',references:'References / links',next:'Preferred next step'};

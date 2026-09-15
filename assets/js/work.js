@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   if (matchMedia('(max-width: 932px)').matches) return;
-  const t=window.MiraI18n?.t??((text,values={})=>text.replace(/\{(\w+)\}/g,(_,key)=>values[key]??''));
+  const t=window.MiroI18n?.t??((text,values={})=>text.replace(/\{(\w+)\}/g,(_,key)=>values[key]??''));
   const root=document.documentElement;
   const viewport=document.querySelector('.work-viewport');
   if (!viewport) return;
@@ -278,13 +278,13 @@
     const keys={ArrowRight:index+1,ArrowDown:index+1,PageDown:index+1,ArrowLeft:index-1,ArrowUp:index-1,PageUp:index-1,Home:0,End:pages.length-1};
     if(event.key in keys){event.preventDefault();go(keys[event.key]);}
   });
-  document.addEventListener('mira:overlay',event=>{
+  document.addEventListener('miro:overlay',event=>{
     overlay=event.detail;resetWheel();gesture=null;
     if(transition)finish(destination());
     if(!overlay)scheduleLayout();
   });
   const stop=()=>{if(!motion()){if(transition)finish(destination());else cancel();}};
-  reduced.addEventListener('change',stop);document.addEventListener('mira:motion',stop);
+  reduced.addEventListener('change',stop);document.addEventListener('miro:motion',stop);
   document.addEventListener('visibilitychange',()=>{if(document.hidden){if(transition)finish(destination());resetWheel();gesture=null;}});
   addEventListener('hashchange',()=>go(hashIndex()));
   addEventListener('pageshow',event=>{if(pages.length && location.hash && (event.persisted || hashIndex()!==active))finish(hashIndex(),{url:false})});

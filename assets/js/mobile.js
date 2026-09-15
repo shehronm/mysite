@@ -51,7 +51,7 @@
       return `<div class="mobile-case-visual visual-crm">${commonHead}<div class="mv-pipeline"><span><i>01</i><b>${isRu?'Новый лид':'New lead'}</b><small>Website</small></span><span><i>02</i><b>${isRu?'Квалификация':'Qualified'}</b><small>Owner + task</small></span><span><i>03</i><b>${isRu?'Следующий шаг':'Next step'}</b><small>Automation</small></span></div><div class="mv-connectors"><b>FORM</b><i>→</i><b>CRM</b><i>→</i><b>FOLLOW-UP</b></div>${flowStrip(project)}</div>`;
     }
     if(project==='telegram'){
-      return `<div class="mobile-case-visual visual-tg">${commonHead}<div class="mv-phone"><div class="mv-chat"><span class="bot">MIRA BOT</span><p>${isRu?'Что нужно сделать?':'What do you need?'}</p><div class="mv-options"><b>${isRu?'Запись':'Booking'}</b><b>${isRu?'Заказ':'Order'}</b><b>${isRu?'Вопрос':'Ask'}</b></div><p class="user">${isRu?'Записаться завтра':'Book tomorrow'}</p><p class="ok">✓ ${isRu?'Готово — 14:30':'Done — 14:30'}</p></div></div><div class="mv-sideflow"><span>CRM</span><i>↕</i><span>CAL</span><i>↕</i><span>TEAM</span></div>${flowStrip(project)}</div>`;
+      return `<div class="mobile-case-visual visual-tg">${commonHead}<div class="mv-phone"><div class="mv-chat"><span class="bot">MIRO BOT</span><p>${isRu?'Что нужно сделать?':'What do you need?'}</p><div class="mv-options"><b>${isRu?'Запись':'Booking'}</b><b>${isRu?'Заказ':'Order'}</b><b>${isRu?'Вопрос':'Ask'}</b></div><p class="user">${isRu?'Записаться завтра':'Book tomorrow'}</p><p class="ok">✓ ${isRu?'Готово — 14:30':'Done — 14:30'}</p></div></div><div class="mv-sideflow"><span>CRM</span><i>↕</i><span>CAL</span><i>↕</i><span>TEAM</span></div>${flowStrip(project)}</div>`;
     }
     if(project==='huly'){
       return `<div class="mobile-case-visual visual-team">${commonHead}<div class="mv-board"><section><span>PLAN</span><b>${isRu?'Требования':'Requirements'}</b><b>${isRu?'Приоритеты':'Priorities'}</b></section><section><span>BUILD</span><b>${isRu?'Задачи':'Tasks'}</b><b>${isRu?'Документы':'Docs'}</b></section><section><span>REVIEW</span><b>${isRu?'Проверка':'Review'}</b><b>${isRu?'Релиз':'Release'}</b></section></div><div class="mv-activity"><i></i><span>${isRu?'Контекст остаётся рядом с работой':'Context stays beside the work'}</span></div>${flowStrip(project)}</div>`;
@@ -142,7 +142,7 @@
     const contactHref=linkFor('contact.html',isRu?'contact.html':'contact.html');
     const wrap=document.createElement('section');
     wrap.className='mobile-work';wrap.id='mobileWork';
-    wrap.setAttribute('aria-label',isRu?'Проекты MIRA':'MIRA projects');
+    wrap.setAttribute('aria-label',isRu?'Проекты MIRO':'MIRO projects');
     const shortName={piptan:'PIPTAN',haar:'HAAR',krema:'KREMA',dust:'AI',twenty:'CRM',telegram:'TG',huly:'TEAM'};
     wrap.innerHTML=`<header class="mobile-work-head"><div class="eyebrow">${isRu?'ИЗБРАННЫЕ РАБОТЫ / 07':'SELECTED WORK / 07'}</div><h1>${isRu?'ИЗБРАННЫЕ РАБОТЫ.':'SELECTED WORK.'}</h1><p>${isRu?'Сайты и системы: задача, логика, результат и следующий шаг.':'Sites and systems: the problem, the flow, the outcome and the next action.'}</p><nav class="mobile-work-nav" aria-label="${isRu?'Перейти к проекту':'Jump to project'}">${scenes.map((scene,i)=>{const p=scene.dataset.project||`project-${i+1}`;return `<a href="#m-${esc(p)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(shortName[p]||p.toUpperCase())}</a>`}).join('')}</nav></header><div class="mobile-work-list" id="projects"></div>`;
     const list=qs('.mobile-work-list',wrap);

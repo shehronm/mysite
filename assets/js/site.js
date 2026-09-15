@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const t=window.MiraI18n?.t??(text=>text);
+  const t=window.MiroI18n?.t??(text=>text);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const menu = document.querySelector('#mobileMenu');
   const toggle = document.querySelector('.menu-toggle');
@@ -29,7 +29,7 @@
       dialog.style.setProperty('--dialog-origin-y', `${Math.max(10,Math.min(90,(origin.top + origin.height/2 - surface.top)/surface.height*100))}%`);
     }
     document.documentElement.dataset.motion = 'paused';
-    document.dispatchEvent(new CustomEvent('mira:overlay', {detail:true}));
+    document.dispatchEvent(new CustomEvent('miro:overlay', {detail:true}));
   }
   function closeDialog(dialog, immediately = false) {
     if (!dialog?.open || dialog.classList.contains('is-closing')) return;
@@ -56,7 +56,7 @@
       toggle?.setAttribute('aria-expanded','false');
       if (returnFocus?.isConnected) returnFocus.focus({preventScroll:true});
       returnFocus = null;
-      document.dispatchEvent(new CustomEvent('mira:overlay', {detail:false}));
+      document.dispatchEvent(new CustomEvent('miro:overlay', {detail:false}));
   }
   [menu,glass].filter(Boolean).forEach(dialog => {
     dialog.addEventListener('cancel', e => {e.preventDefault();closeDialog(dialog)});
@@ -78,7 +78,7 @@
   menu?.querySelector('.menu-close').addEventListener('click',()=>closeDialog(menu));
   matchMedia('(min-width:933px)').addEventListener('change',e=>{if(e.matches)closeDialog(menu,true)});
 
-  if (glass && window.MiraContent) {
+  if (glass && window.MiroContent) {
     const fields = {
       meta:glass.querySelector('#glassMeta'),title:glass.querySelector('#glassTitle'),
       text:glass.querySelector('#glassText'),role:glass.querySelector('#glassRole')
@@ -94,7 +94,7 @@
     const footer=document.createElement('div');footer.className='glass-footer';footer.append(next);readingArea.append(footer);
     let active = null;
     function populate(id,kind) {
-      const item = window.MiraContent[kind]?.[id];
+      const item = window.MiroContent[kind]?.[id];
       if (!item) return false;
       active = {id,kind};
       fields.meta.textContent = item.meta ?? item.m;
@@ -144,7 +144,7 @@
       (item.links||[]).forEach(link=>{
         const url=new URL(link.href,location.href);
         if(!['http:','https:'].includes(url.protocol))return;
-        if(url.origin===location.origin&&url.pathname.startsWith('/demos/'))url.searchParams.set('lang',window.MiraI18n?.lang||'en');
+        if(url.origin===location.origin&&url.pathname.startsWith('/demos/'))url.searchParams.set('lang',window.MiroI18n?.lang||'en');
         const a=document.createElement('a');a.href=url.href;a.textContent=link.label;
         if(url.origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer';}
         resources.append(a);
@@ -170,7 +170,7 @@
       if (!active) return;
       const ids = active.kind==='cases'
         ? [...new Set([...document.querySelectorAll('[data-case]')].map(el=>el.dataset.case).filter(Boolean))]
-        : Object.keys(window.MiraContent[active.kind]);
+        : Object.keys(window.MiroContent[active.kind]);
       if(!ids.length)return;
       populate(ids[(ids.indexOf(active.id)+1)%ids.length],active.kind);
       fields.title.focus({preventScroll:true});

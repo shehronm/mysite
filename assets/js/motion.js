@@ -1,13 +1,13 @@
 /* Event-driven enhancement: animation belongs to graphics, never scroll control. */
 (() => {
   'use strict';
-  const t=window.MiraI18n?.t??(text=>text);
+  const t=window.MiroI18n?.t??(text=>text);
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   const toggle = document.querySelector('.motion-toggle');
   let paused = false;
-  try { paused = localStorage.getItem('mira:motion') === 'paused'; } catch { /* Optional preference. */ }
+  try { paused = localStorage.getItem('miro:motion') === 'paused'; } catch { /* Optional preference. */ }
   const enabled = () => !reduced.matches && !paused;
   function sync() {
     root.dataset.motionPreference = paused ? 'paused' : 'running';
@@ -22,11 +22,11 @@
       root.classList.remove('motion-entry');
       document.querySelectorAll('.section-arrive').forEach(el => el.classList.remove('section-arrive'));
     }
-    document.dispatchEvent(new CustomEvent('mira:motion', {detail:{enabled:enabled()}}));
+    document.dispatchEvent(new CustomEvent('miro:motion', {detail:{enabled:enabled()}}));
   }
   toggle?.addEventListener('click', () => {
     paused = !paused;
-    try { localStorage.setItem('mira:motion', paused ? 'paused' : 'running'); } catch { /* In-memory control still works. */ }
+    try { localStorage.setItem('miro:motion', paused ? 'paused' : 'running'); } catch { /* In-memory control still works. */ }
     sync();
   });
   reduced.addEventListener('change', sync);
@@ -88,9 +88,9 @@
   }, {passive:true});
   opening?.addEventListener('pointerleave', () => { pointerX=pointerY=0;schedule(); });
   if (opening || field) addEventListener('scroll',schedule,{passive:true});
-  document.addEventListener('mira:overlay',event=>{if(!event.detail)schedule()});
+  document.addEventListener('miro:overlay',event=>{if(!event.detail)schedule()});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule()});
-  document.addEventListener('mira:motion',schedule);
+  document.addEventListener('miro:motion',schedule);
 
   document.querySelectorAll('.offer-row').forEach(row => {
     let rowFrame = 0, latestX = 50;

@@ -1,5 +1,5 @@
-/* MIRA services and platform-based projects. Generated from scripts/portfolio-data.mjs. */
-window.MiraContent = {
+/* MIRO services and platform-based projects. Generated from scripts/portfolio-data.mjs. */
+window.MiroContent = {
   "services": {
     "web": {
       "meta": "WEB / DIGITAL PRODUCTS",
@@ -110,7 +110,7 @@ window.MiraContent = {
         },
         {
           "title": "Project foundation — Dust",
-          "text": "Built on Dust, a platform with agents, knowledge spaces and tools. MIRA offers configuration and integration for a company’s needs. Real business data requires its own connections and verification.",
+          "text": "Built on Dust, a platform with agents, knowledge spaces and tools. MIRO offers configuration and integration for a company’s needs. Real business data requires its own connections and verification.",
           "items": []
         }
       ]
@@ -285,7 +285,7 @@ window.MiraContent = {
         },
         {
           "title": "Project foundation — Huly",
-          "text": "Built on Huly: tasks, documents, chat, calendar and notifications. A complete workspace needs server configuration; MIRA’s service is to adapt the processes to the team.",
+          "text": "Built on Huly: tasks, documents, chat, calendar and notifications. A complete workspace needs server configuration; MIRO’s service is to adapt the processes to the team.",
           "items": []
         }
       ]
@@ -490,7 +490,7 @@ window.MiraContent = {
         },
         {
           "title": "Project foundation — Dust",
-          "text": "Built on Dust, a platform with agents, knowledge spaces and tools. MIRA offers configuration and integration for a company’s needs. Real business data requires its own connections and verification.",
+          "text": "Built on Dust, a platform with agents, knowledge spaces and tools. MIRO offers configuration and integration for a company’s needs. Real business data requires its own connections and verification.",
           "items": []
         }
       ],
@@ -672,7 +672,7 @@ window.MiraContent = {
         },
         {
           "title": "Project foundation — Huly",
-          "text": "Built on Huly: tasks, documents, chat, calendar and notifications. A complete workspace needs server configuration; MIRA’s service is to adapt the processes to the team.",
+          "text": "Built on Huly: tasks, documents, chat, calendar and notifications. A complete workspace needs server configuration; MIRO’s service is to adapt the processes to the team.",
           "items": []
         }
       ],

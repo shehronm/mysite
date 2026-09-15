@@ -22,7 +22,7 @@
  };
  if(id==='forma'){
   const homes=[{id:'A-12',rooms:0,area:32,price:220000,floor:2,view:t('Во двор','Courtyard')},{id:'A-24',rooms:1,area:48,price:310000,floor:4,view:t('На сад','Garden')},{id:'B-08',rooms:1,area:56,price:365000,floor:2,view:t('На город','City')},{id:'B-32',rooms:2,area:74,price:480000,floor:5,view:t('Во двор','Courtyard')},{id:'C-16',rooms:2,area:86,price:590000,floor:3,view:t('На сад','Garden')},{id:'C-41',rooms:3,area:118,price:850000,floor:6,view:t('Терраса','Terrace')}];
-  const key='mira-forma-favourites';let saved=[];try{const raw=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(raw))saved=raw.filter(x=>homes.some(h=>h.id===x));}catch{}
+  const key='miro-forma-favourites';let saved=[];try{const raw=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(raw))saved=raw.filter(x=>homes.some(h=>h.id===x));}catch{}
   let rooms='all';const bedroom=h=>h.rooms===0?t('Студия','Studio'):t(`${h.rooms} ${h.rooms===1?'спальня':h.rooms<5?'спальни':'спален'}`,`${h.rooms} bedroom${h.rooms===1?'':'s'}`);
   function render(){
    const selected=homes.filter(h=>(rooms==='all'||h.rooms===+rooms)&&h.price<=+$('#budget').value&&(!$('#savedOnly').checked||saved.includes(h.id)));
