@@ -628,3 +628,124 @@
   .brief-status.is-error{color:#b42318!important}
   .brief-status.is-success{color:#267247!important}
 }
+
+/* === Mobile v5: calm scroll-reactive background system === */
+@media (max-width:932px){
+  :root{
+    --m-scroll-bg:#f7f7f5;
+    --m-bg-warm:#f7f7f5;
+    --m-bg-cool:#f1f3f5;
+    --m-bg-mist:#edf2f8;
+    --m-bg-stone:#f4f0ec;
+    --m-bg-sage:#f0f3f0;
+    --m-text:#111113;
+    --m-muted:#5c6066;
+    --m-micro:#686b70;
+  }
+
+  html{background:#f7f7f5!important}
+  body{
+    background-color:var(--m-scroll-bg)!important;
+    color:var(--m-text)!important;
+    transition:background-color .78s cubic-bezier(.22,.72,.24,1)!important;
+  }
+
+  /* The page background now carries the section transition. Sections stay transparent. */
+  .page-shell,.trust-page,.page-content,
+  .page-index .opening,.mobile-value-strip,.page-index .offer,.page-index .practice,.page-index .trust-bridge,.page-index .contact,
+  .page-work,.mobile-work,
+  .page-hero,.trust-hero,.trust-signals,.trust-process,.fit-section,.trust-proof-cta,
+  .page-reviews,.proof-hero,.proof-policy,.proof-projects,.proof-checks,.proof-cta,
+  .page-contact,.contact-page,.brief-section{
+    background:transparent!important;
+    background-color:transparent!important;
+    color:var(--m-text)!important;
+  }
+
+  /* Keep all typography readable on every palette color. */
+  .page-index .trust-bridge h2,.trust-proof-cta h2,.proof-cta h2,
+  .page-title,.page-lead,.proof-hero h1,.contact-page>h2,.brief-heading h2,
+  .process-intro h2,.fit-copy h2,.proof-policy h2,.proof-project-head h2,.proof-checks-head h2{
+    color:var(--m-text)!important;
+  }
+  .page-index .trust-bridge p,.trust-proof-cta p,.proof-cta p,
+  .page-lead,.proof-hero p,.proof-policy p,.proof-checks p,.contact-intro,.brief-heading p,
+  .process-intro p,.fit-copy p{
+    color:var(--m-muted)!important;
+  }
+  .micro,.mobile-work-head .eyebrow,.contact-option>.micro,.mobile-case-meta{
+    color:var(--m-micro)!important;
+  }
+
+  /* Previously-dark terminal sections become calm light sections; hierarchy moves to buttons/cards. */
+  .page-index .trust-bridge-links a{
+    background:rgba(255,255,255,.72)!important;
+    border:1px solid rgba(17,17,19,.12)!important;
+    color:var(--m-text)!important;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .trust-proof-cta .primary-cta,.proof-cta a{
+    background:#111113!important;
+    color:#fff!important;
+  }
+  .trust-proof-cta .secondary-cta{
+    background:rgba(255,255,255,.72)!important;
+    color:#111113!important;
+    border:1px solid rgba(17,17,19,.12)!important;
+  }
+
+  /* Surfaces stay neutral and stable while the canvas subtly changes around them. */
+  .mobile-value-panel,.mobile-value-strip article,.offer-row,.page-index .actions p,.page-index .contact-route,
+  .mobile-case,.trust-grid article,.process-list article,.fit-grid>div,.proof-card,.check-grid article,
+  .contact-option,.contact-channel,.brief-form .radio{
+    box-shadow:0 1px 0 rgba(17,17,19,.02)!important;
+  }
+
+  /* Header remains legible and visually connected to the changing canvas. */
+  .site-header{
+    background:rgba(247,247,245,.86)!important;
+    border-bottom-color:rgba(17,17,19,.09)!important;
+  }
+
+  /* A tiny optical blend at section edges prevents hard bands during slow scrolling. */
+  [data-mobile-bg]{
+    position:relative;
+    isolation:isolate;
+  }
+
+  /* Blue remains a restrained brand accent only, not a large background fill. */
+  .page-title i,.proof-hero h1 i,.proof-cta h2 i,.contact-page h2 i,.brief-heading h2 i,.practice-title i,.trust-process h2 i,
+  .page-index .offer-heading h2 span{
+    color:#0a67d1!important;
+  }
+}
+
+@media (max-width:932px) and (prefers-reduced-motion:reduce){
+  body{transition:none!important}
+}
+
+/* Ensure body owns the mobile canvas even when page classes set desktop backgrounds. */
+@media (max-width:932px){
+  body.page-index,body.page-work,body.page-about,body.page-reviews,body.page-contact{
+    background:var(--m-scroll-bg)!important;
+    background-image:none!important;
+    color:var(--m-text)!important;
+  }
+}
+
+/* Mobile v5 contrast hardening: secondary labels stay AA-readable on all light canvases. */
+@media (max-width:932px){
+  .page-index .offer-row>.micro:first-child,
+  .process-list em,
+  .check-grid article>.micro,
+  .contact-option>.micro,
+  .mobile-case-meta,
+  .mobile-work-head .eyebrow{
+    color:#686b70!important;
+    opacity:1!important;
+  }
+}
+@media (max-width:932px){
+  .mobile-work-nav a{min-height:46px!important}
+}
